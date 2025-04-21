@@ -1,0 +1,294 @@
+/* ========================= */
+/* BANNER */
+/* ========================= */
+
+.banner_container {
+    width: 100vw;
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner_element {
+    width: 100%;
+    height: 100%; 
+    filter: brightness(0.5); 
+    position: absolute;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1; 
+}
+
+.banner_element.active {
+    opacity: 1;
+}
+
+.banner_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 70%;
+    position: absolute;
+    color: var(--letters);
+    text-align: center;
+    z-index: 2; 
+    font-family: var(--OpenSans);
+}
+
+.tituloBanner {
+    font-size: 3em;
+    margin: 0;
+}
+
+.botonBanner {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: solid 1px white;
+    color: var(--letters);
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    border-radius:50px; 
+
+}
+
+.botonBanner:hover {
+    background-color: var(--letters);
+    color: var(--letters2);
+}
+
+#dynamic-text, .cursor {
+    color: var(--contrast);
+}
+
+/* ========================= */
+/* HISTORIA */
+/* ========================= */
+
+.history-title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--contrast);
+    margin-top: 5vh;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--JosefinSans);
+    position: relative;
+    text-shadow: 0px 0px 3px #000; 
+}
+
+.history-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background-color: var(--contrast);
+    border-radius: 2px;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; 
+    padding: 20px 0;
+    margin: 40px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: var(--OpenSans);
+}
+
+.timeline-item {
+    width: 100%;
+    max-width: 800px;
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.timeline-content {
+    background-color: var(--background-highlight);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+    color: var(--letters2);
+}
+
+.timeline-content h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    color: var(--main);
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 1em;
+    color: var(--letters2);
+}
+
+/* ========================= */
+/* RESEÑAS */
+/* ========================= */
+
+/* Contenedor principal de la sección de reseñas */
+.reseñas-section {
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    margin: 0 auto; /* Centra la sección */
+    max-width: 50%; /* Por defecto, ocupa el 50% en escritorio */
+    margin-bottom: 5vh;
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+/* Contenedor interno de las tarjetas */
+.reseñas-wrapper {
+    padding: 15px; /* Elimina el padding del wrapper */
+    margin: 10px; /* Agrega un margen interno para separar la barra de scroll */
+    overflow-x: auto; /* Habilita el scroll horizontal */
+    white-space: nowrap; /* Evita que las tarjetas se envuelvan */
+}
+
+@media only screen and (max-width: 768px) {
+    .reseñas-section {
+        max-width: 80%; /* Ocupa el 75% en tablets */
+    }
+
+    .reseñas-wrapper {
+        padding: 7px; /* Elimina el padding del wrapper */
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+    .reseñas-section {
+        max-width: 100%; /* Ocupa el 85% en celulares */
+        
+    }
+
+    .reseñas-wrapper {
+        padding: 5px; /* Elimina el padding del wrapper */
+        margin: 0; /* Elimina el margen interno para evitar desbordamiento */
+    }
+
+   
+}
+
+/* Contenedor interno de las tarjetas */
+.reseñas-container {
+    display: flex;
+    gap: 20px; /* Espaciado entre las tarjetas */
+    width: fit-content;
+}
+
+.reseña-card {
+    display: inline-block;
+    background-color: var(--background-highlight); /* Fondo que resalta */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 300px; 
+    height: 250px;
+    padding: 15px;
+    text-align: center;
+    font-family: var(--OpenSans);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.cliente-foto {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.reseña-content h4 {
+    font-size: 1em;
+    color: var(--main);
+    margin-bottom: 10px;
+}
+
+.reseña-content p {
+    font-size: 0.9em;
+    color: var(--letters2);
+}
+
+.reseñas-tittle {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--contrast);
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--JosefinSans);
+    position: relative;
+    text-shadow: 0px 0px 3px #000; 
+}
+
+.reseñas-tittle::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background-color: var(--contrast);
+    border-radius: 2px;
+}
+
+.reseña-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+
+/* ========================= */
+/* SCROLL PERSONALIZADO */
+/* ========================= */
+
+.reseñas-wrapper::-webkit-scrollbar {
+    height: 8px;
+
+}
+
+.reseñas-wrapper::-webkit-scrollbar-track {
+    background: var(--letters);
+    border-radius: 10px;
+
+}
+
+.reseñas-wrapper::-webkit-scrollbar-thumb {
+    background: var(--contrast);
+    border-radius: 10px;
+
+}
+
+.reseñas-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--main);
+
+}

@@ -1,0 +1,124 @@
+/* Estilos para la página Sobre Nosotros */
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 100vh; /* Altura fija para about-section en resoluciones menores a 1500px */
+}
+
+.carousel {
+    position: relative;
+    flex: 1;
+    max-width: 50%;
+    max-height: 80%;
+    padding: 10px;
+    height: 100%; /* Altura proporcional al contenedor about-section */
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Asegura que el carrusel siempre mida lo mismo */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item {
+    display: none;
+    width: 100%;
+    height: 100%; /* Asegura que el carrusel siempre mida lo mismo */
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%; /* Asegura que el carrusel siempre mida lo mismo */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    border-radius: 10px;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 50%;
+    padding: 10px;
+    color: var(--letters2);
+    font-family: var(--OpenSans);
+}
+
+.about-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--contrast);
+}
+
+.about-text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Estilos responsive */
+@media (max-width: 1500px) {
+    .about-section {
+        flex-direction: column;
+        height: auto; /* Ajusta la altura automáticamente */
+    }
+
+    .about-text {
+        max-width: 100%;
+    }
+
+    .carousel {
+        max-width: 80vw;
+    }
+
+    .about-text {
+        order: 2; /* Mueve el texto debajo del carrusel */
+    }
+
+    .carousel {
+        order: 1; /* Asegura que el carrusel esté encima del texto */
+        height: 400px; /* Altura menor para el carrusel en resoluciones menores a 1500px */
+    }
+
+    .about-text h1 {
+        font-size: 2em;
+    }
+
+    .about-text p {
+        font-size: 1em;
+    }
+}
+
+/* Estilos para resoluciones mayores a 1500px */
+
+@media (min-width: 1500px) {
+    .about-section {
+        height: 900px; 
+    }
+}
