@@ -1,0 +1,125 @@
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60vw;
+    height: 60vh;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    font-family: var(--OpenSans);
+}
+
+.contact-form {
+    flex: 1;
+    margin-right: 20px;
+    background-color: var(--background-highlight); 
+    padding: 20px;
+    border-right: 2px solid #ccc; 
+    box-sizing: border-box;
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333; 
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--contrast); 
+    box-shadow: 0 0 5px var(--contrast); 
+}
+
+.contact-form button {
+    background-color: var(--contrast);
+    color: var(--letters2);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: var(--letters2);
+    color: var(--contrast);
+}
+
+.contact-images {
+    flex: 1;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.contact-images img {
+    display: inline-block;
+    width: 50px; 
+    height: auto; 
+    transition: transform 0.3s ease, filter 0.3s ease; 
+    cursor: pointer; 
+}
+
+.contact-images img:hover {
+    transform: scale(1.1); 
+    filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(0deg) brightness(1.2); /* Cambia el color al de --contrast */
+}
+
+.contact-images-icons {
+    display: flex;
+    justify-content: center; 
+    gap: 15px; 
+}
+
+@media (max-width: 768px) {
+    
+    .contact-container {
+        flex-direction: column;
+        width: 90vw;
+        height: auto;
+    }
+
+    .contact-form {
+        margin-right: 0;
+        margin-bottom: 20px;
+        border-right: none; 
+        border-bottom: 2px solid #ccc; 
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .contact-images {
+
+        margin-top: 3vh;
+
+        justify-content: space-between;
+    }
+}

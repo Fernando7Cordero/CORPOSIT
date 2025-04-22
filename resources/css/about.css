@@ -1,11 +1,10 @@
-/* Estilos para la página Sobre Nosotros */
 .about-section {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    height: 100vh; /* Altura fija para about-section en resoluciones menores a 1500px */
+    height: 100vh; 
 }
 
 .carousel {
@@ -14,13 +13,13 @@
     max-width: 50%;
     max-height: 80%;
     padding: 10px;
-    height: 100%; /* Altura proporcional al contenedor about-section */
+    height: 100%; 
 }
 
 .carousel-inner {
     position: relative;
     width: 100%;
-    height: 100%; /* Asegura que el carrusel siempre mida lo mismo */
+    height: 100%; 
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -29,7 +28,7 @@
 .carousel-item {
     display: none;
     width: 100%;
-    height: 100%; /* Asegura que el carrusel siempre mida lo mismo */
+    height: 100%; 
 }
 
 .carousel-item.active {
@@ -38,8 +37,8 @@
 
 .carousel-item img {
     width: 100%;
-    height: 100%; /* Asegura que el carrusel siempre mida lo mismo */
-    object-fit: cover; /* Mantiene la proporción de la imagen */
+    height: 100%; 
+    object-fit: cover; 
     border-radius: 10px;
 }
 
@@ -82,11 +81,10 @@
     line-height: 1.6;
 }
 
-/* Estilos responsive */
 @media (max-width: 1500px) {
     .about-section {
         flex-direction: column;
-        height: auto; /* Ajusta la altura automáticamente */
+        height: auto; 
     }
 
     .about-text {
@@ -98,12 +96,12 @@
     }
 
     .about-text {
-        order: 2; /* Mueve el texto debajo del carrusel */
+        order: 2;
     }
 
     .carousel {
-        order: 1; /* Asegura que el carrusel esté encima del texto */
-        height: 400px; /* Altura menor para el carrusel en resoluciones menores a 1500px */
+        order: 1; 
+        height: 400px; 
     }
 
     .about-text h1 {
@@ -115,7 +113,6 @@
     }
 }
 
-/* Estilos para resoluciones mayores a 1500px */
 
 @media (min-width: 1500px) {
     .about-section {
