@@ -259,7 +259,7 @@ footer {
 }
 
 .adminLink {
-    color: var(--contrast);
+    color: var(--contrast) !important;
     font-size: 0.8em;
 }
 
