@@ -6,6 +6,11 @@
 Este repositorio contiene el código fuente del sitio web publicitario de **CORPOSIT**, una empresa especializada en la custodia de envíos por carretera en México. El objetivo del sitio es ofrecer una presencia digital profesional que atraiga nuevos clientes, brinde información clara sobre los servicios y facilite el contacto con la empresa.
 
 ---
+=======
+# AUTOR: Fernando Cordero
+# Link: https://fernando7cordero.github.io/CORPOSIT/
+
+Este repositorio contiene el código fuente del sitio web publicitario de **CORPOSIT**, una empresa especializada en custodia de envíos por carretera. El objetivo del sitio es ofrecer una presencia digital profesional que atraiga nuevos clientes, brinde información clara sobre los servicios, y facilite el contacto con la empresa.
 
 ## 🌐 Objetivo del Proyecto
 
@@ -60,3 +65,23 @@ El proyecto utiliza las siguientes tecnologías:
 - **Sistema de Gestión Administrativa:** En desarrollo, permitirá a los administradores gestionar información clave de la empresa.
 
 ---
+=======
+- Permita a clientes potenciales conocer el proceso de contratación.
+- Ofrezca una forma fácil de contacto.
+- Genere confianza y fortalezca la imagen de la marca.
+
+## 🧩 Estructura del Sitio
+
+- `index.html` – Página de inicio
+- `about.html` – Página "Sobre nosotros"
+- `services.html` – Sección de servicios
+- `contact.html` – Formulario de contacto
+- `img/` – Carpeta que contiene imágenes, íconos y recursos multimedia
+- `css/` – Estilos personalizados del sitio
+- `js/` – Scripts necesarios para efectos dinámicos (como dynamic text)
+
+## 🧰 Tecnologías Utilizadas
+
+- HTML5
+- CSS3
+- JavaScript
