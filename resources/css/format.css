@@ -258,6 +258,10 @@ footer {
     margin-top: 10px;
 }
 
+.adminLink {
+    color: var(--contrast);
+    font-size: 0.8em;
+}
 
 
 
