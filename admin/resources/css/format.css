@@ -1,0 +1,15 @@
+:root {
+    --main: #000814;
+    --contrast: #ffbe0b;
+    --letters: #e5e5e5;
+    --letters2: #272727;
+    --background: #e5e5e5;
+    --background-highlight: #f9f9f9;
+
+    --header-height: 11vh;
+
+
+    --JosefinSans:'Josefin Sans', sans-serif;
+    --OpenSans: "Open Sans";
+    --RobotoFlex: 'Roboto Flex', sans-serif;
+}
