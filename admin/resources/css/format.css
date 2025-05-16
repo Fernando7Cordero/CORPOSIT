@@ -5,11 +5,117 @@
     --letters2: #272727;
     --background: #e5e5e5;
     --background-highlight: #f9f9f9;
-
     --header-height: 11vh;
-
-
-    --JosefinSans:'Josefin Sans', sans-serif;
+    --JosefinSans: 'Josefin Sans', sans-serif;
     --OpenSans: "Open Sans";
     --RobotoFlex: 'Roboto Flex', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    overflow-x: hidden;
+}
+
+main {
+    width: 80vw;
+    margin: auto;
+    min-height: 100vh;
+    padding-top: var(--header-height);
+    height: auto;
+    overflow-x: hidden;
+}
+
+/* Header centrado */
+.corposit-header {
+    width: 80vw;
+    margin: 20px auto 0 auto;
+    background: var(--main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--header-height);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border-bottom: 1px solid var(--background);
+    border-radius: 20px 20px 0 0;
+}
+
+.corposit-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.corposit-logo {
+    max-height: 100px;
+}
+
+@media (max-width: 600px) {
+    .corposit-logo {
+        max-height: 50px;
+    }
+}
+
+/* Barra de navegación */
+
+.corposit-navbar {
+    width: 80vw;
+    margin: 0 auto;
+    background: var(--main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border-radius: 0 0 20px 20px;
+
+    position: sticky;
+    top: calc(var(--header-height) - 10vh); 
+    z-index: 10;
+    transition: top 0.3s;
+}
+
+.corposit-nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+    justify-content: space-around;
+}
+
+.corposit-nav-link {
+    display: block;
+    padding: 1em 2em;
+    text-decoration: none;
+    color: var(--letters);
+    font-family: var(--OpenSans);
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.2s, border-bottom 0.2s;
+    border-bottom: 3px solid transparent;
+}
+
+.corposit-nav-link:hover,
+.corposit-nav-link.active {
+    color: var(--contrast);
+    border-bottom: 3px solid var(--contrast);
+}
+
+@media (max-width: 600px) {
+    .corposit-nav-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .corposit-nav-link {
+        padding: 0.8em 0;
+        width: 100vw;
+        text-align: center;
+    }
 }
