@@ -44,6 +44,7 @@ main {
 
 /* Barra de navegación */
 .corposit-navbar {
+
     width: 80vw;
     margin: 0 auto;
     background: var(--main);
@@ -58,6 +59,19 @@ main {
     transition: top 0.3s;
 }
 
+@media (min-width: 600px) {
+
+    .corposit-navbar {
+        
+        position: sticky !important;
+        top: calc(var(--header-height) - 11vh); 
+        z-index: 10;
+
+    }
+}
+
+
+
 .corposit-nav-list {
     list-style: none;
     display: flex;
@@ -67,6 +81,16 @@ main {
     max-width: 600px;
     justify-content: space-around;
 }
+
+.active {
+        background: var(--contrast) !important;
+        color: var(--letters2) !important;
+    }
+
+    .inicio-nav.active {
+        background: var(--main) !important;
+        color: var(--contrast) !important;
+    }   
 
 .corposit-nav-link {
     display: block;
@@ -247,15 +271,7 @@ main {
         border: none;
     }
 
-    .active {
-        background: var(--contrast) !important;
-        color: var(--letters2) !important;
-    }
-
-    .inicio-nav.active {
-        background: var(--main) !important;
-        color: var(--contrast) !important;
-    }   
+    
 
     .corposit-navbar {
         position: fixed;

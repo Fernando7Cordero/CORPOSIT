@@ -9,15 +9,11 @@
     <meta name="keywords" content="CORPOSIT, gestión, administración, login, sistema de gestión">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ESTILOS -->
-    <link rel="stylesheet" href="../resources/css/normalize.css">
-    <link rel="stylesheet" href="../resources/css/format.css">
-    <link rel="stylesheet" href="../resources/css/inicio.css">
-    <link rel="stylesheet" href="../resources/css/global.css">
-
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +22,14 @@
 
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="../../img/logos/favicon.png">
+
+    
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="../resources/css/normalize.css">
+    <link rel="stylesheet" href="../resources/css/format.css">
+    <link rel="stylesheet" href="../resources/css/inicio.css">
+    <link rel="stylesheet" href="../resources/css/global.css">
+    <link rel="stylesheet" href="css/tablas.css">
 
     <title>Clientes - CORPOSIT</title>
 </head>
@@ -66,9 +70,149 @@
         </ul>
     </nav>
     <main>
+        <div class="container my-5">
+            <!-- Título llamativo encima de la tabla -->
+            <h1 class="text-center mb-4 display-5 fw-bold tabla-title">
+                Clientes
+            </h1>
+            <!-- Barra de herramientas -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+                <div class="btn-group" role="group" id="toolbarAcciones">
+                    <button type="button" class="btn btn-success" id="btnAgregar" data-bs-toggle="modal" data-bs-target="#modalAgregarCliente">
+                        <i class="bi bi-person-plus"></i> Añadir
+                    </button>
+                    <button type="button" class="btn btn-danger rounded-end" id="btnEliminar">
+                        <i class="bi bi-person-dash"></i> Eliminar
+                    </button>
+                    <button type="button" class="btn btn-danger d-none" id="btnConfirmarEliminar">
+                        <i class="bi bi-trash"></i> Confirmar
+                    </button>
+                    <button type="button" class="btn btn-secondary d-none" id="btnCancelarEliminar">
+                        <i class="bi bi-x"></i> Cancelar
+                    </button>
+                </div>
+                <form class="d-flex" role="search">
+                    <input class="form-control" type="search" placeholder="Buscar cliente..." aria-label="Buscar">
+                    <button class="btn btn-outline-primary ms-2" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+            </div>
 
-        <!-- Contenido principal aquí -->
+            <!-- Modal para agregar cliente -->
+            <div class="modal fade" id="modalAgregarCliente" tabindex="-1" aria-labelledby="modalAgregarClienteLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <form>
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalAgregarClienteLabel">Agregar Nuevo Cliente</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label for="nombreCliente" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="nombreCliente" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="empresaCliente" class="form-label">Empresa</label>
+                          <input type="text" class="form-control" id="empresaCliente" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="correoCliente" class="form-label">Correo</label>
+                          <input type="email" class="form-control" id="correoCliente" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="telefonoCliente" class="form-label">Teléfono</label>
+                          <input type="tel" class="form-control" id="telefonoCliente" required>
+                        </div>
+                        <div class="col-md-12">
+                          <label for="direccionCliente" class="form-label">Dirección</label>
+                          <input type="text" class="form-control" id="direccionCliente" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="rfcCliente" class="form-label">RFC</label>
+                          <input type="text" class="form-control" id="rfcCliente" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="estatusCliente" class="form-label">Estatus</label>
+                          <select class="form-select" id="estatusCliente" required>
+                            <option value="">Selecciona...</option>
+                            <option value="Activo">Activo</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Inactivo">Inactivo</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
 
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle" id="tablaClientes">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col" class="col-eliminar d-none"></th>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Empresa</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">RFC</th>
+                            <th scope="col">Estatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
+                            <th scope="row">1</th>
+                            <td>Juan Pérez</td>
+                            <td>Transportes del Norte</td>
+                            <td>juan.perez@transnorte.com</td>
+                            <td>555-123-4567</td>
+                            <td>Av. Reforma 123, CDMX</td>
+                            <td>PEJJ800101XXX</td>
+                            <td><span class="badge bg-success">Activo</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
+                            <th scope="row">2</th>
+                            <td>María López</td>
+                            <td>Logística MX</td>
+                            <td>maria.lopez@logisticamx.com</td>
+                            <td>555-987-6543</td>
+                            <td>Calle 5 #45, Monterrey</td>
+                            <td>LOPM900202YYY</td>
+                            <td><span class="badge bg-warning text-dark">Pendiente</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
+                            <th scope="row">3</th>
+                            <td>Carlos Ramírez</td>
+                            <td>Envíos Express</td>
+                            <td>carlos.ramirez@enviosexpress.com</td>
+                            <td>555-321-7890</td>
+                            <td>Blvd. Aeropuerto 200, GDL</td>
+                            <td>RACC850303ZZZ</td>
+                            <td><span class="badge bg-danger">Inactivo</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Botones de confirmación/cancelación -->
+            <div class="d-flex justify-content-end gap-2 mt-3" id="eliminarToolbar">
+                <button class="btn btn-danger" id="btnConfirmarEliminar"><i class="bi bi-trash"></i> Confirmar</button>
+                <button class="btn btn-secondary" id="btnCancelarEliminar">Cancelar</button>
+            </div>
+        </div>
     </main>
 
 
@@ -94,6 +238,6 @@
 
     <!-- JS -->
     <script src="../resources/js/header.js"></script>
-
+    <script src="js/eliminarFilas.js"></script>
 
 </html>
