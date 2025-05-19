@@ -9,15 +9,13 @@
     <meta name="keywords" content="CORPOSIT, gestión, administración, login, sistema de gestión">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ESTILOS -->
-    <link rel="stylesheet" href="../resources/css/normalize.css">
-    <link rel="stylesheet" href="../resources/css/format.css">
-    <link rel="stylesheet" href="../resources/css/inicio.css">
-    <link rel="stylesheet" href="../resources/css/global.css">
+    
 
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +24,13 @@
 
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="../../img/logos/favicon.png">
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="../resources/css/normalize.css">
+    <link rel="stylesheet" href="../resources/css/format.css">
+    <link rel="stylesheet" href="../resources/css/inicio.css">
+    <link rel="stylesheet" href="../resources/css/global.css">
+    <link rel="stylesheet" href="css/tablas.css">
 
     <title>Rutas - CORPOSIT</title>
 </head>
@@ -66,9 +71,87 @@
         </ul>
     </nav>
     <main>
-
-        <!-- Contenido principal aquí -->
-
+        <div class="container my-5">
+            <!-- Título llamativo encima de la tabla -->
+            <h1 class="text-center mb-4 display-5 fw-bold tabla-title">
+                Rutas
+            </h1>
+            <!-- Barra de herramientas -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+                <div class="btn-group" role="group" id="toolbarAcciones">
+                    <button type="button" class="btn btn-success" id="btnAgregar" data-bs-toggle="modal" data-bs-target="#modalAgregarCliente">
+                        <i class="bi bi-person-plus"></i> Añadir
+                    </button>
+                    <button type="button" class="btn btn-danger rounded-end" id="btnEliminar">
+                        <i class="bi bi-person-dash"></i> Eliminar
+                    </button>
+                    <button type="button" class="btn btn-danger d-none" id="btnConfirmarEliminar">
+                        <i class="bi bi-trash"></i> Confirmar
+                    </button>
+                    <button type="button" class="btn btn-secondary d-none" id="btnCancelarEliminar">
+                        <i class="bi bi-x"></i> Cancelar
+                    </button>
+                </div>
+                <form class="d-flex" role="search">
+                    <input class="form-control" type="search" placeholder="Buscar ruta..." aria-label="Buscar">
+                    <button class="btn btn-outline-primary ms-2" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle" id="tablaRutas">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col" class="col-eliminar d-none"></th>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre de Ruta</th>
+                            <th scope="col">Origen</th>
+                            <th scope="col">Destino</th>
+                            <th scope="col">Distancia (km)</th>
+                            <th scope="col">Duración Estimada</th>
+                            <th scope="col">Estatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
+                            <th scope="row">1</th>
+                            <td>Ruta Norte</td>
+                            <td>Monterrey</td>
+                            <td>Nuevo Laredo</td>
+                            <td>220</td>
+                            <td>3 h</td>
+                            <td><span class="badge bg-success">Activa</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
+                            <th scope="row">2</th>
+                            <td>Ruta Centro</td>
+                            <td>CDMX</td>
+                            <td>Querétaro</td>
+                            <td>210</td>
+                            <td>2.5 h</td>
+                            <td><span class="badge bg-warning text-dark">Pendiente</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
+                            <th scope="row">3</th>
+                            <td>Ruta Pacífico</td>
+                            <td>Guadalajara</td>
+                            <td>Manzanillo</td>
+                            <td>300</td>
+                            <td>4 h</td>
+                            <td><span class="badge bg-danger">Inactiva</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Botones de confirmación/cancelación -->
+            <div class="d-flex justify-content-end gap-2 mt-3" id="eliminarToolbar">
+                <button class="btn btn-secondary" id="btnCancelarEliminar">Cancelar</button>
+            </div>
+        </div>
     </main>
 
 
@@ -84,6 +167,57 @@
 
     </footer>
 
+    <!-- Modal para agregar ruta -->
+<div class="modal fade" id="modalAgregarRuta" tabindex="-1" aria-labelledby="modalAgregarRutaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalAgregarRutaLabel">Agregar Nueva Ruta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="nombreRuta" class="form-label">Nombre de Ruta</label>
+              <input type="text" class="form-control" id="nombreRuta" required>
+            </div>
+            <div class="col-md-6">
+              <label for="origenRuta" class="form-label">Origen</label>
+              <input type="text" class="form-control" id="origenRuta" required>
+            </div>
+            <div class="col-md-6">
+              <label for="destinoRuta" class="form-label">Destino</label>
+              <input type="text" class="form-control" id="destinoRuta" required>
+            </div>
+            <div class="col-md-6">
+              <label for="distanciaRuta" class="form-label">Distancia (km)</label>
+              <input type="number" class="form-control" id="distanciaRuta" required>
+            </div>
+            <div class="col-md-6">
+              <label for="duracionRuta" class="form-label">Duración Estimada</label>
+              <input type="text" class="form-control" id="duracionRuta" required>
+            </div>
+            <div class="col-md-6">
+              <label for="estatusRuta" class="form-label">Estatus</label>
+              <select class="form-select" id="estatusRuta" required>
+                <option value="">Selecciona...</option>
+                <option value="Activa">Activa</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Inactiva">Inactiva</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar Ruta</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 </body>
 
 
@@ -94,6 +228,8 @@
 
     <!-- JS -->
     <script src="../resources/js/header.js"></script>
+    <script src="js/eliminarFilas.js"></script>
+
 
 
 </html>
