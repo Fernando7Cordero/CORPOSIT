@@ -187,8 +187,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 44px;
-    height: 44px;
+    width: 20px;
+    height: 70px !important;
     background: none;
     border: none;
     cursor: pointer;
@@ -197,8 +197,8 @@ main {
 }
 .menu-toggle span {
     display: block;
-    width: 28px;
-    height: 4px;
+    width: 15px;
+    height: 3px;
     margin: 4px 0;
     background: var(--letters);
     border-radius: 2px;
@@ -246,6 +246,17 @@ main {
         background: none;
         border: none;
     }
+
+    .active {
+        background: var(--contrast) !important;
+        color: var(--letters2) !important;
+    }
+
+    .inicio-nav.active {
+        background: var(--main) !important;
+        color: var(--contrast) !important;
+    }   
+
     .corposit-navbar {
         position: fixed;
         top: 0;
