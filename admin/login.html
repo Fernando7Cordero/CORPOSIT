@@ -2,17 +2,21 @@
 <html lang="es">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta author="Fernando Cordero">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Inicio de sesión para el sistema de gestión de CORPOSIT">
+    <meta name="keywords" content="CORPOSIT, gestión, administración, login, sistema de gestión">
+    
 
     <!-- ESTILOS -->
-    <link rel="stylesheet" href="resources/css/format.css">
     <link rel="stylesheet" href="resources/css/normalize.css">
     <link rel="stylesheet" href="resources/css/login.css">
+    <link rel="stylesheet" href="resources/css/global.css">
+
 
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,7 +30,8 @@
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="../img/logos/favicon.png">
 
-    <title>CORPOSIT - Admin</title>
+    <title>Login - CORPOSIT</title>
+
 
 </head>
 
@@ -53,10 +58,30 @@
                         <input type="password" class="form-control inputLogin" id="password" placeholder="Ingresa tu contraseña" required>
                     </div>
                     <button type="submit" class="btn btn-primary w-100" id="botonLogin">Iniciar Sesión</button>
+
+                    <!-- INICIO DE SESION PROVISIONAL -->
+                    <script>
+                        document.getElementById('botonLogin').addEventListener('click', function (event) {
+                            event.preventDefault(); // Evita el envío del formulario
+
+                            // Aquí puedes agregar la lógica para validar el inicio de sesión
+                            const username = document.getElementById('username').value;
+                            const password = document.getElementById('password').value;
+
+                            if (username === 'admin' && password === 'admin') {
+                               
+                                // Redirigir a la página de administración
+                                window.location.href = 'inicio.html';
+
+                            } else {
+                                alert('Usuario o contraseña incorrectos');
+                            }
+                        });
+                    </script>
+
                 </form>
             </div>
         </div>
-
 
     </main>
 
