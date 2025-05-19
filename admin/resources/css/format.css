@@ -68,6 +68,16 @@ main {
     justify-content: space-around;
 }
 
+.active {
+        background: var(--contrast) !important;
+        color: var(--letters2) !important;
+    }
+
+    .inicio-nav.active {
+        background: var(--main) !important;
+        color: var(--contrast) !important;
+    }   
+
 .corposit-nav-link {
     display: block;
     padding: 1em 2em;
@@ -247,15 +257,7 @@ main {
         border: none;
     }
 
-    .active {
-        background: var(--contrast) !important;
-        color: var(--letters2) !important;
-    }
-
-    .inicio-nav.active {
-        background: var(--main) !important;
-        color: var(--contrast) !important;
-    }   
+    
 
     .corposit-navbar {
         position: fixed;
