@@ -15,6 +15,7 @@
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +24,7 @@
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="../../img/logos/favicon.png">
 
+
     <!-- ESTILOS -->
     <link rel="stylesheet" href="../resources/css/normalize.css">
     <link rel="stylesheet" href="../resources/css/format.css">
@@ -30,7 +32,7 @@
     <link rel="stylesheet" href="../resources/css/global.css">
     <link rel="stylesheet" href="css/tablas.css">
 
-    <title>Clientes - CORPOSIT</title>
+    <title>Custodios - CORPOSIT</title>
 </head>
 
 <body>
@@ -48,15 +50,15 @@
     <nav class="corposit-navbar" id="navbar">
         <ul class="corposit-nav-list">
             <li class="corposit-dropdown">
-                <a href="../inicio.html" class="corposit-nav-link inicio-nav">Inicio</a>
+                <a href="../inicio.html" class="corposit-nav-link  inicio-nav">Inicio</a>
             </li>
             <li class="corposit-nav-item corposit-dropdown">
                 <div class="corposit-nav-link catalogos-nav">Catálogos</div>
                 <ul class="corposit-dropdown-menu">
                     <li><a href="rutas.html" class="corposit-dropdown-link ">Rutas</a></li>
                     <li><a href="vehiculos.html" class="corposit-dropdown-link">Vehículos</a></li>
-                    <li><a href="custodios.html" class="corposit-dropdown-link">Custodios</a></li>
-                    <li><a href="clientes.html" class="corposit-dropdown-link last-link active">Clientes</a></li>
+                    <li><a href="custodios.html" class="corposit-dropdown-link active">Custodios</a></li>
+                    <li><a href="clientes.html" class="corposit-dropdown-link last-link">Clientes</a></li>
                 </ul>
             </li>
             <li class="corposit-nav-item corposit-dropdown">
@@ -74,7 +76,7 @@
         <div class="container my-5">
             <!-- Título llamativo encima de la tabla -->
             <h1 class="text-center mb-4 display-5 fw-bold tabla-title">
-                Clientes
+                Custodios
             </h1>
             <!-- Barra de herramientas -->
             <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
@@ -100,108 +102,185 @@
                     </button>
                 </form>
             </div>
+
+            <!-- Modal para agregar custodio -->
+            <div class="modal fade" id="modalAgregarCliente" tabindex="-1" aria-labelledby="modalAgregarClienteLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalAgregarClienteLabel">Agregar Nuevo Custodio</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Cerrar"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label for="nombreCustodio" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="nombreCustodio" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="apellidoPaternoCustodio" class="form-label">Apellido Paterno</label>
+                                        <input type="text" class="form-control" id="apellidoPaternoCustodio" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="apellidoMaternoCustodio" class="form-label">Apellido Materno</label>
+                                        <input type="text" class="form-control" id="apellidoMaternoCustodio">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="curpCustodio" class="form-label">CURP</label>
+                                        <input type="text" class="form-control" id="curpCustodio" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="rfcCustodio" class="form-label">RFC</label>
+                                        <input type="text" class="form-control" id="rfcCustodio" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="telefonoCustodio" class="form-label">Teléfono</label>
+                                        <input type="tel" class="form-control" id="telefonoCustodio" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="aniosExperienciaCustodio" class="form-label">Años de experiencia</label>
+                                        <input type="number" class="form-control" id="aniosExperienciaCustodio" min="0">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="calleCustodio" class="form-label">Calle</label>
+                                        <input type="text" class="form-control" id="calleCustodio" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="numExtCustodio" class="form-label">No. Ext.</label>
+                                        <input type="text" class="form-control" id="numExtCustodio" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="numIntCustodio" class="form-label">No. Int.</label>
+                                        <input type="text" class="form-control" id="numIntCustodio">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="cpCustodio" class="form-label">CP</label>
+                                        <input type="text" class="form-control" id="cpCustodio" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="coloniaCustodio" class="form-label">Colonia</label>
+                                        <input type="text" class="form-control" id="coloniaCustodio" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="estadoCustodio" class="form-label">Estado</label>
+                                        <input type="text" class="form-control" id="estadoCustodio" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Guardar Custodio</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
             <div class="table-responsive">
-                <table class="table table-striped table-hover align-middle" id="tablaClientes">
+                <table class="table table-striped table-hover align-middle" id="tablaCustodios">
                     <thead class="table-dark">
                         <tr>
                             <th scope="col" class="col-eliminar d-none"></th>
                             <th scope="col">#</th>
-                            <th scope="col">Nombre de cliente</th>
-                            <th scope="col">Nombre de empresa</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido Paterno</th>
+                            <th scope="col">Apellido Materno</th>
+                            <th scope="col">CURP</th>
+                            <th scope="col">RFC</th>
                             <th scope="col">Teléfono</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Comentarios</th>
+                            <th scope="col">Calle</th>
+                            <th scope="col">No. Ext.</th>
+                            <th scope="col">No. Int.</th>
+                            <th scope="col">CP</th>
+                            <th scope="col">Colonia</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Años de experiencia</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
                             <th scope="row">1</th>
-                            <td>Juan Pérez</td>
-                            <td>Transportes del Norte</td>
+                            <td>Juan</td>
+                            <td>Pérez</td>
+                            <td>López</td>
+                            <td>PEJJ800101HDFRZN09</td>
+                            <td>PEJJ800101XXX</td>
                             <td>555-123-4567</td>
-                            <td>juan.perez@transnorte.com</td>
-                            <td>Cliente frecuente, solicita facturación mensual.</td>
+                            <td>Av. Reforma</td>
+                            <td>123</td>
+                            <td>2B</td>
+                            <td>06000</td>
+                            <td>Centro</td>
+                            <td>CDMX</td>
+                            <td>5</td>
+                            
                         </tr>
                         <tr>
                             <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
                             <th scope="row">2</th>
-                            <td>María López</td>
-                            <td>Logística MX</td>
+                            <td>María</td>
+                            <td>Gómez</td>
+                            <td>Ramírez</td>
+                            <td>GOMM900202MDFRRL08</td>
+                            <td>GOMM900202YYY</td>
                             <td>555-987-6543</td>
-                            <td>maria.lopez@logisticamx.com</td>
-                            <td>Prefiere contacto por correo.</td>
+                            <td>Calle 5</td>
+                            <td>45</td>
+                            <td></td>
+                            <td>64000</td>
+                            <td>Obrera</td>
+                            <td>Monterrey</td>
+                            <td>8</td>
+                            
+                            </td>
                         </tr>
                         <tr>
                             <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
                             <th scope="row">3</th>
-                            <td>Carlos Ramírez</td>
-                            <td>Envíos Express</td>
+                            <td>Carlos</td>
+                            <td>Ramírez</td>
+                            <td>Juarez</td>
+                            <td>RACC850303HDFRRL07</td>
+                            <td>RACC850303ZZZ</td>
                             <td>555-321-7890</td>
-                            <td>carlos.ramirez@enviosexpress.com</td>
-                            <td>Solicita cotización para rutas largas.</td>
+                            <td>Blvd. Aeropuerto</td>
+                            <td>200</td>
+                            <td>1A</td>
+                            <td>44100</td>
+                            <td>Guadalajara Centro</td>
+                            <td>Jalisco</td>
+                            <td>3</td>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
             <!-- Botones de confirmación/cancelación -->
             <div class="d-flex justify-content-end gap-2 mt-3" id="eliminarToolbar">
-                <button class="btn btn-secondary" id="btnCancelarEliminar"><i class="bi bi-x"></i> Cancelar</button>
+                <button class="btn btn-danger" id="btnConfirmarEliminar"><i class="bi bi-trash"></i> Confirmar</button>
+                <button class="btn btn-secondary" id="btnCancelarEliminar">Cancelar</button>
             </div>
         </div>
     </main>
 
+
     <footer class="corposit-footer">
+
         <div class="footer-logo-container">
             <img src="../img/logos/logo.png" alt="Logo CORPOSIT" class="footer-logo">
         </div>
+
         <div class="footer-privacy">
             <small>© 2025 CORPOSIT. Todos los derechos reservados. | <a href="#">Aviso de Privacidad</a></small>
         </div>
-    </footer>
 
-    <!-- Modal para agregar cliente -->
-    <div class="modal fade" id="modalAgregarCliente" tabindex="-1" aria-labelledby="modalAgregarClienteLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <form>
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalAgregarClienteLabel">Agregar Nuevo Cliente</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="nombreCliente" class="form-label">Nombre de cliente</label>
-                                <input type="text" class="form-control" id="nombreCliente" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="empresaCliente" class="form-label">Nombre de empresa</label>
-                                <input type="text" class="form-control" id="empresaCliente" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="telefonoCliente" class="form-label">Teléfono</label>
-                                <input type="tel" class="form-control" id="telefonoCliente" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="correoCliente" class="form-label">Correo</label>
-                                <input type="email" class="form-control" id="correoCliente" required>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="comentariosCliente" class="form-label">Comentarios</label>
-                                <textarea class="form-control" id="comentariosCliente" rows="2" required></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar Cliente</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    </footer>
 
     <!-- Modal para editar campo -->
     <div class="modal fade" id="modalEditarCampo" tabindex="-1" aria-labelledby="modalEditarCampoLabel"
@@ -247,6 +326,7 @@
     </div>
 
 </body>
+
 
 <!-- BOOTSTRAP JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"

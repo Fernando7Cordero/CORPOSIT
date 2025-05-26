@@ -1,4 +1,3 @@
-
 .col-eliminar {
   width: 40px;
   text-align: center;
@@ -15,4 +14,24 @@
     font-weight: bold;
     font-style: oblique;    
     margin-bottom: 1em;
+}
+
+td {
+  position: relative;
+}
+.editar-campo {
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0d6efd;
+  background: #fff;
+  padding: 2px 4px;
+  border-radius: 3px;
+  display: none;
+  z-index: 2;
+}
+td:hover .editar-campo {
+  display: inline-block;
 }

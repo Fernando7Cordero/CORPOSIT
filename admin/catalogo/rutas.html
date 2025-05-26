@@ -56,6 +56,7 @@
                 <ul class="corposit-dropdown-menu">
                     <li><a href="rutas.html" class="corposit-dropdown-link active">Rutas</a></li>
                     <li><a href="vehiculos.html" class="corposit-dropdown-link">Vehículos</a></li>
+                    <li><a href="custodios.html" class="corposit-dropdown-link">Custodios</a></li>
                     <li><a href="clientes.html" class="corposit-dropdown-link last-link">Clientes</a></li>
                 </ul>
             </li>
@@ -105,44 +106,40 @@
                         <tr>
                             <th scope="col" class="col-eliminar d-none"></th>
                             <th scope="col">#</th>
-                            <th scope="col">Nombre de Ruta</th>
-                            <th scope="col">Origen</th>
-                            <th scope="col">Destino</th>
-                            <th scope="col">Distancia (km)</th>
-                            <th scope="col">Duración Estimada</th>
-                            <th scope="col">Estatus</th>
+                            <th scope="col">Estado Inicial</th>
+                            <th scope="col">Estado Final</th>
+                            <th scope="col">Pago de Casetas</th>
+                            <th scope="col">Tiempo Aproximado</th>
+                            <th scope="col">Descripción</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
                             <th scope="row">1</th>
-                            <td>Ruta Norte</td>
-                            <td>Monterrey</td>
-                            <td>Nuevo Laredo</td>
-                            <td>220</td>
-                            <td>3 h</td>
-                            <td><span class="badge bg-success">Activa</span></td>
+                            <td>CDMX</td>
+                            <td>Morelos</td>
+                            <td>Sí</td>
+                            <td>2 h</td>
+                            <td>Posibles demoras por tráfico en la salida sur de CDMX.</td>
                         </tr>
                         <tr>
                             <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
                             <th scope="row">2</th>
-                            <td>Ruta Centro</td>
-                            <td>CDMX</td>
-                            <td>Querétaro</td>
-                            <td>210</td>
-                            <td>2.5 h</td>
-                            <td><span class="badge bg-warning text-dark">Pendiente</span></td>
+                            <td>Jalisco</td>
+                            <td>Nayarit</td>
+                            <td>No</td>
+                            <td>3 h</td>
+                            <td>Ruta libre, considerar lluvias en temporada.</td>
                         </tr>
                         <tr>
                             <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
                             <th scope="row">3</th>
-                            <td>Ruta Pacífico</td>
-                            <td>Guadalajara</td>
-                            <td>Manzanillo</td>
-                            <td>300</td>
+                            <td>Nuevo León</td>
+                            <td>Tamaulipas</td>
+                            <td>Sí</td>
                             <td>4 h</td>
-                            <td><span class="badge bg-danger">Inactiva</span></td>
+                            <td>Caseta en la autopista Monterrey-Reynosa, posible revisión militar.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -179,33 +176,28 @@
         <div class="modal-body">
           <div class="row g-3">
             <div class="col-md-6">
-              <label for="nombreRuta" class="form-label">Nombre de Ruta</label>
-              <input type="text" class="form-control" id="nombreRuta" required>
+              <label for="estadoInicialRuta" class="form-label">Estado Inicial</label>
+              <input type="text" class="form-control" id="estadoInicialRuta" required>
             </div>
             <div class="col-md-6">
-              <label for="origenRuta" class="form-label">Origen</label>
-              <input type="text" class="form-control" id="origenRuta" required>
+              <label for="estadoFinalRuta" class="form-label">Estado Final</label>
+              <input type="text" class="form-control" id="estadoFinalRuta" required>
             </div>
             <div class="col-md-6">
-              <label for="destinoRuta" class="form-label">Destino</label>
-              <input type="text" class="form-control" id="destinoRuta" required>
-            </div>
-            <div class="col-md-6">
-              <label for="distanciaRuta" class="form-label">Distancia (km)</label>
-              <input type="number" class="form-control" id="distanciaRuta" required>
-            </div>
-            <div class="col-md-6">
-              <label for="duracionRuta" class="form-label">Duración Estimada</label>
-              <input type="text" class="form-control" id="duracionRuta" required>
-            </div>
-            <div class="col-md-6">
-              <label for="estatusRuta" class="form-label">Estatus</label>
-              <select class="form-select" id="estatusRuta" required>
+              <label for="casetasRuta" class="form-label">¿Se necesita pagar casetas?</label>
+              <select class="form-select" id="casetasRuta" required>
                 <option value="">Selecciona...</option>
-                <option value="Activa">Activa</option>
-                <option value="Pendiente">Pendiente</option>
-                <option value="Inactiva">Inactiva</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
               </select>
+            </div>
+            <div class="col-md-6">
+              <label for="tiempoRuta" class="form-label">Tiempo Aproximado</label>
+              <input type="text" class="form-control" id="tiempoRuta" required placeholder="Ej: 2 h 30 min">
+            </div>
+            <div class="col-md-12">
+              <label for="descripcionRuta" class="form-label">Descripción (demoras o consideraciones)</label>
+              <textarea class="form-control" id="descripcionRuta" rows="2" required></textarea>
             </div>
           </div>
         </div>
@@ -214,6 +206,47 @@
           <button type="submit" class="btn btn-primary">Guardar Ruta</button>
         </div>
       </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para editar campo -->
+<div class="modal fade" id="modalEditarCampo" tabindex="-1" aria-labelledby="modalEditarCampoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="formEditarCampo">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEditarCampoLabel">Editar campo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <label id="labelEditarCampo" class="form-label"></label>
+          <input type="text" class="form-control" id="inputEditarCampo" required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Continuar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div class="modal fade" id="modalConfirmarEdicion" tabindex="-1" aria-labelledby="modalConfirmarEdicionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalConfirmarEdicionLabel">¿Estás seguro?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        ¿Deseas guardar el nuevo valor?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnConfirmarEdicion">Confirmar</button>
+      </div>
     </div>
   </div>
 </div>
@@ -229,6 +262,7 @@
     <!-- JS -->
     <script src="../resources/js/header.js"></script>
     <script src="js/eliminarFilas.js"></script>
+    <script src="js/editarCampos.js"></script>
 
 
 

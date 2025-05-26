@@ -56,6 +56,7 @@
                 <ul class="corposit-dropdown-menu">
                     <li><a href="rutas.html" class="corposit-dropdown-link">Rutas</a></li>
                     <li><a href="vehiculos.html" class="corposit-dropdown-link active">Vehículos</a></li>
+                    <li><a href="custodios.html" class="corposit-dropdown-link">Custodios</a></li>
                     <li><a href="clientes.html" class="corposit-dropdown-link last-link">Clientes</a></li>
                 </ul>
             </li>
@@ -105,48 +106,68 @@
                         <tr>
                             <th scope="col" class="col-eliminar d-none"></th>
                             <th scope="col">#</th>
-                            <th scope="col">Placa</th>
-                            <th scope="col">Tipo</th>
                             <th scope="col">Marca</th>
-                            <th scope="col">Modelo</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Color</th>
                             <th scope="col">Año</th>
-                            <th scope="col">Capacidad</th>
-                            <th scope="col">Estatus</th>
+                            <th scope="col">Placas</th>
+                            <th scope="col">Percance</th>
+                            <th scope="col">Disponibilidad</th>
+                            <th scope="col">Custodio/Dueño</th>
+                            <th scope="col" class="col-editar"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
                             <th scope="row">1</th>
+                            <td>Nissan</td>
+                            <td>Camioneta</td>
+                            <td>Blanco</td>
+                            <td>2021</td>
                             <td>ABC-1234</td>
-                            <td>Camión</td>
-                            <td>Freightliner</td>
-                            <td>Cascadia</td>
-                            <td>2022</td>
-                            <td>20 toneladas</td>
-                            <td><span class="badge bg-success">Activo</span></td>
+                            <td>Ninguno</td>
+                            <td><span class="badge bg-success">Disponible</span></td>
+                            <td>Empresa</td>
+                            <td class="text-center">
+                                <span class="editar-campo" style="display:none; cursor:pointer;">
+                                    <i class="bi bi-pencil-square"></i>
+                                </span>
+                            </td>
                         </tr>
                         <tr>
                             <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
                             <th scope="row">2</th>
+                            <td>Chevrolet</td>
+                            <td>SUV</td>
+                            <td>Negro</td>
+                            <td>2020</td>
                             <td>XYZ-5678</td>
-                            <td>Van</td>
-                            <td>Mercedes-Benz</td>
-                            <td>Sprinter</td>
-                            <td>2021</td>
-                            <td>3.5 toneladas</td>
-                            <td><span class="badge bg-warning text-dark">Mantenimiento</span></td>
+                            <td>Choque leve en 2022</td>
+                            <td><span class="badge bg-warning text-dark">En uso</span></td>
+                            <td>Juan Pérez</td>
+                            <td class="text-center">
+                                <span class="editar-campo" style="display:none; cursor:pointer;">
+                                    <i class="bi bi-pencil-square"></i>
+                                </span>
+                            </td>
                         </tr>
                         <tr>
                             <td class="col-eliminar d-none"><input type="checkbox" class="form-check-input"></td>
                             <th scope="row">3</th>
+                            <td>Toyota</td>
+                            <td>Sedán</td>
+                            <td>Rojo</td>
+                            <td>2019</td>
                             <td>JKL-9012</td>
-                            <td>Tráiler</td>
-                            <td>Kenworth</td>
-                            <td>T680</td>
-                            <td>2020</td>
-                            <td>30 toneladas</td>
-                            <td><span class="badge bg-danger">Inactivo</span></td>
+                            <td>Robo recuperado</td>
+                            <td><span class="badge bg-danger">No disponible</span></td>
+                            <td>Empresa</td>
+                            <td class="text-center">
+                                <span class="editar-campo" style="display:none; cursor:pointer;">
+                                    <i class="bi bi-pencil-square"></i>
+                                </span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -183,37 +204,41 @@
         <div class="modal-body">
           <div class="row g-3">
             <div class="col-md-6">
-              <label for="placaVehiculo" class="form-label">Placa</label>
-              <input type="text" class="form-control" id="placaVehiculo" required>
+              <label for="marcaVehiculo" class="form-label">Marca</label>
+              <input type="text" class="form-control" id="marcaVehiculo" required>
             </div>
             <div class="col-md-6">
               <label for="tipoVehiculo" class="form-label">Tipo</label>
               <input type="text" class="form-control" id="tipoVehiculo" required>
             </div>
             <div class="col-md-6">
-              <label for="marcaVehiculo" class="form-label">Marca</label>
-              <input type="text" class="form-control" id="marcaVehiculo" required>
-            </div>
-            <div class="col-md-6">
-              <label for="modeloVehiculo" class="form-label">Modelo</label>
-              <input type="text" class="form-control" id="modeloVehiculo" required>
+              <label for="colorVehiculo" class="form-label">Color</label>
+              <input type="text" class="form-control" id="colorVehiculo" required>
             </div>
             <div class="col-md-6">
               <label for="anioVehiculo" class="form-label">Año</label>
               <input type="number" class="form-control" id="anioVehiculo" required>
             </div>
             <div class="col-md-6">
-              <label for="capacidadVehiculo" class="form-label">Capacidad</label>
-              <input type="text" class="form-control" id="capacidadVehiculo" required>
+              <label for="placasVehiculo" class="form-label">Placas</label>
+              <input type="text" class="form-control" id="placasVehiculo" required>
             </div>
             <div class="col-md-6">
-              <label for="estatusVehiculo" class="form-label">Estatus</label>
-              <select class="form-select" id="estatusVehiculo" required>
+              <label for="percanceVehiculo" class="form-label">Descripción de percance</label>
+              <input type="text" class="form-control" id="percanceVehiculo">
+            </div>
+            <div class="col-md-6">
+              <label for="disponibilidadVehiculo" class="form-label">Disponibilidad</label>
+              <select class="form-select" id="disponibilidadVehiculo" required>
                 <option value="">Selecciona...</option>
-                <option value="Activo">Activo</option>
-                <option value="Mantenimiento">Mantenimiento</option>
-                <option value="Inactivo">Inactivo</option>
+                <option value="Disponible">Disponible</option>
+                <option value="En uso">En uso</option>
+                <option value="No disponible">No disponible</option>
               </select>
+            </div>
+            <div class="col-md-6">
+              <label for="custodioVehiculo" class="form-label">Custodio/Dueño</label>
+              <input type="text" class="form-control" id="custodioVehiculo" required placeholder="Ej: Empresa o nombre del dueño">
             </div>
           </div>
         </div>
@@ -222,6 +247,47 @@
           <button type="submit" class="btn btn-primary">Guardar Vehículo</button>
         </div>
       </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para editar campo -->
+<div class="modal fade" id="modalEditarCampo" tabindex="-1" aria-labelledby="modalEditarCampoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="formEditarCampo">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEditarCampoLabel">Editar campo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <label id="labelEditarCampo" class="form-label"></label>
+          <input type="text" class="form-control" id="inputEditarCampo" required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Continuar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div class="modal fade" id="modalConfirmarEdicion" tabindex="-1" aria-labelledby="modalConfirmarEdicionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalConfirmarEdicionLabel">¿Estás seguro?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        ¿Deseas guardar el nuevo valor?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnConfirmarEdicion">Confirmar</button>
+      </div>
     </div>
   </div>
 </div>
@@ -237,6 +303,7 @@
     <!-- JS -->
     <script src="../resources/js/header.js"></script>
     <script src="js/eliminarFilas.js"></script>
+    <script src="js/editarCampos.js"></script>
 
 
 
